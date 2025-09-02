@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5fSJfWVwmTQ=",
+  "dgSpecHash": "X/uRaNeKGPM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsScenarios\\PartsScenarios.csproj",
+  "projectFilePath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsScenarios\\PartsScenarios.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ascendion\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Ascendion\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
@@ -18,6 +18,12 @@
     "C:\\Users\\Ascendion\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512",
     "C:\\Users\\Ascendion\\.nuget\\packages\\selenium.support\\4.35.0\\selenium.support.4.35.0.nupkg.sha512",
     "C:\\Users\\Ascendion\\.nuget\\packages\\selenium.webdriver\\4.35.0\\selenium.webdriver.4.35.0.nupkg.sha512",
+    "C:\\Users\\Ascendion\\.nuget\\packages\\sourcegear.sqlite3\\3.50.3\\sourcegear.sqlite3.3.50.3.nupkg.sha512",
+    "C:\\Users\\Ascendion\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\3.0.1\\sqlitepclraw.bundle_e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\Ascendion\\.nuget\\packages\\sqlitepclraw.config.e_sqlite3\\3.0.1\\sqlitepclraw.config.e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\Ascendion\\.nuget\\packages\\sqlitepclraw.core\\3.0.1\\sqlitepclraw.core.3.0.1.nupkg.sha512",
+    "C:\\Users\\Ascendion\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\3.0.1\\sqlitepclraw.provider.e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\Ascendion\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512",
     "C:\\Users\\Ascendion\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []
