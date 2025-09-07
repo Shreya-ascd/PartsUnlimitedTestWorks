@@ -185,7 +185,7 @@ namespace PartsScenarios
             if (_driver != null)
             {
                 _driver.Quit();
-                _driver.Dispose();   // ✅ Proper disposal to fix NUnit1032 warning
+                _driver.Dispose();   // Proper disposal to fix NUnit1032 warning
             }
         }
     }

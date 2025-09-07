@@ -61,6 +61,19 @@
         "runtime": {
           "bin/placeholder/PartsInterfaces.dll": {}
         }
+      },
+      "Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Selenium.WebDriver": "4.35.0"
+        },
+        "compile": {
+          "bin/placeholder/Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Utilities.dll": {}
+        }
       }
     }
   },
@@ -105,13 +118,19 @@
       "type": "project",
       "path": "../PartsInterfaces/PartsInterfaces.csproj",
       "msbuildProject": "../PartsInterfaces/PartsInterfaces.csproj"
+    },
+    "Utilities/1.0.0": {
+      "type": "project",
+      "path": "../Utilities/Utilities.csproj",
+      "msbuildProject": "../Utilities/Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "PartsInterfaces >= 1.0.0",
       "Selenium.Support >= 4.35.0",
-      "Selenium.WebDriver >= 4.35.0"
+      "Selenium.WebDriver >= 4.35.0",
+      "Utilities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -121,11 +140,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj",
+      "projectUniqueName": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj",
       "projectName": "PartsPageClasses",
-      "projectPath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj",
+      "projectPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj",
       "packagesPath": "C:\\Users\\Ascendion\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsPageClasses\\obj\\",
+      "outputPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsPageClasses\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -146,8 +165,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj": {
-              "projectPath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj"
+            "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj": {
+              "projectPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj"
+            },
+            "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\Utilities\\Utilities.csproj": {
+              "projectPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\Utilities\\Utilities.csproj"
             }
           }
         }
@@ -193,8 +215,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsPageClasses\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    }
+  ]
 }

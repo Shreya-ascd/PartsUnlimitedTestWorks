@@ -26,8 +26,6 @@ using OpenQA.Selenium;
 //    }
 //}
 
-using OpenQA.Selenium;
-
 namespace PartsScenarios
 {
     public interface IHomepage

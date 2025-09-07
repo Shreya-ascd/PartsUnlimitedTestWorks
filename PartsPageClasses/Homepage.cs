@@ -118,7 +118,7 @@ namespace PartsScenarios
     {
         private readonly IWebDriver _driver;
 
-        // ✅ Updated locators from your provided selectors
+        // Updated locators from your provided selectors
         private readonly By _logo = By.XPath("/html/body/header/nav/div[1]/div/div[1]/a/img");
         private readonly By _searchIcon = By.CssSelector("#search-link");
         private readonly By _cartIcon = By.XPath("/html/body/header/nav/div[1]/div/div[2]/div[2]/ul/li[3]/a");

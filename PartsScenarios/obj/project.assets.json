@@ -444,13 +444,27 @@
         "dependencies": {
           "PartsInterfaces": "1.0.0",
           "Selenium.Support": "4.35.0",
-          "Selenium.WebDriver": "4.35.0"
+          "Selenium.WebDriver": "4.35.0",
+          "Utilities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/PartsPageClasses.dll": {}
         },
         "runtime": {
           "bin/placeholder/PartsPageClasses.dll": {}
+        }
+      },
+      "Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Selenium.WebDriver": "4.35.0"
+        },
+        "compile": {
+          "bin/placeholder/Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Utilities.dll": {}
         }
       }
     }
@@ -1091,6 +1105,11 @@
       "type": "project",
       "path": "../PartsPageClasses/PartsPageClasses.csproj",
       "msbuildProject": "../PartsPageClasses/PartsPageClasses.csproj"
+    },
+    "Utilities/1.0.0": {
+      "type": "project",
+      "path": "../Utilities/Utilities.csproj",
+      "msbuildProject": "../Utilities/Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1113,11 +1132,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsScenarios\\PartsScenarios.csproj",
+      "projectUniqueName": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsScenarios\\PartsScenarios.csproj",
       "projectName": "PartsScenarios",
-      "projectPath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsScenarios\\PartsScenarios.csproj",
+      "projectPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsScenarios\\PartsScenarios.csproj",
       "packagesPath": "C:\\Users\\Ascendion\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsScenarios\\obj\\",
+      "outputPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsScenarios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1138,11 +1157,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj": {
-              "projectPath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj"
+            "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj": {
+              "projectPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsInterfaces\\PartsInterfaces.csproj"
             },
-            "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj": {
-              "projectPath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj"
+            "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj": {
+              "projectPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsPageClasses\\PartsPageClasses.csproj"
             }
           }
         }
@@ -1208,8 +1227,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\PartsScenarios\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    }
+  ]
 }

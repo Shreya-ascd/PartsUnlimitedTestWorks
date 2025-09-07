@@ -10,3 +10,16 @@ C:\Users\Ascendion\Desktop\PartaUnlimitedTestWorks\PartsInterfaces\obj\Debug\net
 C:\Users\Ascendion\Desktop\PartaUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\refint\PartsInterfaces.dll
 C:\Users\Ascendion\Desktop\PartaUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.pdb
 C:\Users\Ascendion\Desktop\PartaUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\ref\PartsInterfaces.dll
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\bin\Debug\net8.0\PartsInterfaces.deps.json
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\bin\Debug\net8.0\PartsInterfaces.dll
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\bin\Debug\net8.0\PartsInterfaces.pdb
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.csproj.AssemblyReference.cache
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.AssemblyInfoInputs.cache
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.AssemblyInfo.cs
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.sourcelink.json
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.dll
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\refint\PartsInterfaces.dll
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\PartsInterfaces.pdb
+C:\Users\Ascendion\Desktop\CapstoneTestCases\PartsUnlimitedTestWorks\PartsInterfaces\obj\Debug\net8.0\ref\PartsInterfaces.dll

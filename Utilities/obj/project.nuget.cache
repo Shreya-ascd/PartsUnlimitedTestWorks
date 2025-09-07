@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "iamDDFfMMuE=",
+  "dgSpecHash": "waFdxK20wz0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ascendion\\Desktop\\PartaUnlimitedTestWorks\\Utilities\\Utilities.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\Utilities\\Utilities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ascendion\\.nuget\\packages\\selenium.webdriver\\4.35.0\\selenium.webdriver.4.35.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\Utilities\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\Utilities\\Utilities.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Ascendion\\Desktop\\CapstoneTestCases\\PartsUnlimitedTestWorks\\Utilities\\Utilities.csproj",
+      "targetGraphs": []
+    }
+  ]
 }

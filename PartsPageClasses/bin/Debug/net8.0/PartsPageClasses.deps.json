@@ -10,7 +10,8 @@
         "dependencies": {
           "PartsInterfaces": "1.0.0",
           "Selenium.Support": "4.35.0",
-          "Selenium.WebDriver": "4.35.0"
+          "Selenium.WebDriver": "4.35.0",
+          "Utilities": "1.0.0"
         },
         "runtime": {
           "PartsPageClasses.dll": {}
@@ -63,6 +64,17 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "Utilities/1.0.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "4.35.0"
+        },
+        "runtime": {
+          "Utilities.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -87,6 +99,11 @@
       "hashPath": "selenium.webdriver.4.35.0.nupkg.sha512"
     },
     "PartsInterfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Utilities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
