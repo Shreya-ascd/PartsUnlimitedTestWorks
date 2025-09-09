@@ -1,0 +1,457 @@
+Batteries Class :
+
+using OpenQA.Selenium;
+using OpenQA.Selenium.Edge;
+using PartsInterfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PartsPageClasses
+{
+    public class Batteries : IBatteries
+    {
+        private IWebDriver _driver;
+
+
+        public Batteries()
+        {
+            var options = new EdgeOptions();
+            //options.UseChromium = true; // Ensure we're using the Chromium-based Edge
+            _driver = new EdgeDriver(options);
+            _driver.Navigate().GoToUrl("http://localhost:5000/Store/Browse?CategoryId=4");
+        }
+
+        public string GetTitle()
+        {
+            // Retrieve the title of the page from the browser
+            string title = _driver.FindElement(By.CssSelector("body > div.container > section > h2")).Text;
+            Console.WriteLine(title);
+            return title;
+        }
+
+        public int GetPartsCount()
+        {
+            // Find all part elements (assuming parts are listed in <li> elements with a specific class)
+            var parentDiv = _driver.FindElement(By.CssSelector(".row"));
+            var partElements = parentDiv.FindElements(By.CssSelector(".col-lg-3.col-md-3.col-sm-3.col-xs-12"));
+            Console.WriteLine(partElements.Count);
+            Console.WriteLine(partElements);
+            return partElements.Count;
+        }
+
+        public string GetPartName(int partIndex)
+        {
+            // Retrieve the part name for a specific index (assuming parts are in <li> elements with a class of "brake-part")
+            var parentDiv = _driver.FindElement(By.CssSelector(".row"));
+            var childElements = parentDiv.FindElements(By.CssSelector(".col-lg-3.col-md-3.col-sm-3.col-xs-12"));
+
+            List<string> h4Texts = new List<string>();
+
+            // Loop through each child element and extract the text inside the <h4> tag
+            foreach (var element in childElements)
+            {
+                try
+                {
+                    // Find the <h4> tag inside this element and get its text
+                    var h4Tag = element.FindElement(By.TagName("h4"));
+                    h4Texts.Add(h4Tag.Text);
+                }
+                catch (NoSuchElementException)
+                {
+                    // If no <h4> tag is found, handle the exception
+                    Console.WriteLine("No <h4> tag found in one of the elements.");
+                }
+            }
+
+
+            if (partIndex >= 0 && partIndex < h4Texts.Count)
+            {
+                return h4Texts[partIndex];
+            }
+            return null; // Return null if the index is out of bounds
+        }
+
+        public void OnClickNavigateToPartDescriptionPage(int partIndex)
+        {
+            // Click on the part description link or button for a given part
+            var parentDiv = _driver.FindElement(By.CssSelector(".row"));
+            var childElements = parentDiv.FindElements(By.CssSelector(".col-lg-3.col-md-3.col-sm-3.col-xs-12"));
+
+
+            if (partIndex >= 0 && partIndex < childElements.Count)
+            {
+                var part = childElements[partIndex];
+
+                part.Click(); // Click the link/button to navigate to the part description page
+            }
+        }
+
+        public string GetCurrentUrl()
+        {
+            return _driver.Url.ToString();
+        }
+
+        public void CloseBrowser()
+        {
+            _driver.Quit(); // Close the browser after the tests are done
+        }
+
+    }
+}
+
+
+Batteries Interface : 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PartsInterfaces
+{
+    public interface IBatteries
+    {
+        string GetTitle();
+        int GetPartsCount();
+
+        string GetPartName(int partIndex);
+        void OnClickNavigateToPartDescriptionPage(int partIndex);
+
+        void CloseBrowser();
+
+        string GetCurrentUrl();
+    }
+}
+
+
+Batteries Test :
+ 
+using NUnit.Framework;
+using PartsInterfaces;
+using PartsPageClasses;
+
+namespace PartsScenarios
+{
+    [TestFixture]
+    public class BatteriesTest
+    {
+        private IBatteries _batteriesPage;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _batteriesPage = new Batteries();
+        }
+
+        [Test]
+        public void Test_GetTitle_ShouldReturnCorrectTitle()
+        {
+            // Act
+            string title = _batteriesPage.GetTitle();
+
+            // Assert
+            Assert.AreEqual("Batteries", title, "The page title should be 'Batteries'.");
+        }
+
+        [Test]
+        public void Test_GetPartsCount_ShouldReturnExpectedCount()
+        {
+            // Act
+            int partsCount = _batteriesPage.GetPartsCount();
+
+            // Assert (Update expected count if UI changes)
+            Assert.AreEqual(3, partsCount, "The number of battery parts should match the expected value.");
+        }
+
+        [Test]
+        public void Test_GetPartName_WithValidIndexes_ShouldReturnCorrectNames()
+        {
+            // Arrange
+            string[] expectedNames = { "12-Volt Calcium Battery", "Spiral Coil Battery", "Jumper Leads" };
+
+            for (int i = 0; i < expectedNames.Length; i++)
+            {
+                // Act
+                string partName = _batteriesPage.GetPartName(i);
+
+                // Assert
+                Assert.IsNotNull(partName, $"Part name at index {i} should not be null.");
+                Assert.AreEqual(expectedNames[i], partName, $"Part name at index {i} did not match.");
+            }
+        }
+
+        [Test]
+        public void Test_GetPartName_WithInvalidIndex_ShouldReturnNull()
+        {
+            // Act
+            string partName = _batteriesPage.GetPartName(10);
+
+            // Assert
+            Assert.IsNull(partName, "Invalid index should return null.");
+        }
+
+        [Test]
+        public void Test_OnClickNavigateToPartDescriptionPage_ShouldNavigateToCorrectUrl()
+        {
+            // Act
+            _batteriesPage.OnClickNavigateToPartDescriptionPage(0);
+            string currentUrl = _batteriesPage.GetCurrentUrl();
+
+            // Assert (Update expected URL if product IDs change)
+            Assert.AreEqual("http://localhost:5000/Store/Details/13", currentUrl,
+                "Clicking on the first battery part should navigate to the correct description page.");
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _batteriesPage.CloseBrowser();
+        }
+    }
+}
+
+Brakes class :
+
+using OpenQA.Selenium;
+using OpenQA.Selenium.Edge;
+using System;
+using PartsInterfaces;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PartsPageClasses
+{
+    public class Brakes : IBrakes
+    {
+        private IWebDriver _driver;
+
+        // Constructor initializes the Edge WebDriver
+        public Brakes()
+        {
+            var options = new EdgeOptions();
+            //options.UseChromium = true; // Ensure we're using the Chromium-based Edge
+            _driver = new EdgeDriver(options);
+            _driver.Navigate().GoToUrl("http://localhost:5000/Store/Browse?CategoryId=1"); // Assuming the brake page is hosted at this URL
+        }
+
+        public string GetTitle()
+        {
+            // Retrieve the title of the page from the browser
+            string title = _driver.FindElement(By.CssSelector("body > div.container > section > h2")).Text;
+            Console.WriteLine(title);
+            return title;
+        }
+
+        public int GetPartsCount()
+        {
+            // Find all brake part elements (assuming parts are listed in <li> elements with a specific class)
+            var parentDiv = _driver.FindElement(By.CssSelector(".row"));
+            var partElements = parentDiv.FindElements(By.CssSelector(".col-lg-3.col-md-3.col-sm-3.col-xs-12"));
+            Console.WriteLine(partElements.Count);
+            Console.WriteLine(partElements);
+            //for (int i = 0; i < partElements.Count; i++) {
+            //    Console.WriteLine(partElements);
+            //}
+            return partElements.Count;
+        }
+
+        public string GetPartName(int partIndex)
+        {
+            // Retrieve the part name for a specific index (assuming parts are in <li> elements with a class of "brake-part")
+            var parentDiv = _driver.FindElement(By.CssSelector(".row"));
+            var childElements = parentDiv.FindElements(By.CssSelector(".col-lg-3.col-md-3.col-sm-3.col-xs-12"));
+
+            List<string> h4Texts = new List<string>();
+
+            // Loop through each child element and extract the text inside the <h4> tag
+            foreach (var element in childElements)
+            {
+                try
+                {
+                    // Find the <h4> tag inside this element and get its text
+                    var h4Tag = element.FindElement(By.TagName("h4"));
+                    h4Texts.Add(h4Tag.Text);
+                }
+                catch (NoSuchElementException)
+                {
+                    // If no <h4> tag is found, handle the exception
+                    Console.WriteLine("No <h4> tag found in one of the elements.");
+                }
+            }
+
+
+            if (partIndex >= 0 && partIndex < h4Texts.Count)
+            {
+                return h4Texts[partIndex];
+            }
+            return null; // Return null if the index is out of bounds
+        }
+
+        public void OnClickNavigateToPartDescriptionPage(int partIndex)
+        {
+            // Click on the part description link or button for a given part
+            var parentDiv = _driver.FindElement(By.CssSelector(".row"));
+            var childElements = parentDiv.FindElements(By.CssSelector(".col-lg-3.col-md-3.col-sm-3.col-xs-12"));
+
+
+            if (partIndex >= 0 && partIndex < childElements.Count)
+            {
+                var part = childElements[partIndex];
+
+                part.Click(); // Click the link/button to navigate to the part description page
+            }
+        }
+
+        public string GetCurrentUrl()
+        {
+            return _driver.Url.ToString();
+        }
+
+        public void CloseBrowser()
+        {
+            _driver.Quit(); // Close the browser after the tests are done
+        }
+
+    }
+}
+
+Brakes Interface :
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PartsInterfaces
+{
+    // Ensure the IBrakes interface is accessible by making it public
+    public interface IBrakes
+    {
+        string GetTitle();
+        int GetPartsCount();
+        string GetPartName(int partIndex);
+        void OnClickNavigateToPartDescriptionPage(int partIndex);
+        void CloseBrowser();
+        string GetCurrentUrl();
+    }
+}
+
+Brakes Test :
+
+using OpenQA.Selenium.BiDi.Communication;
+using System;
+using System.Collections.Generic;
+using PartsInterfaces;
+using PartsPageClasses;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PartsScenarios
+{
+    internal class BrakesTestprivate
+    {
+        private IBrakes _brakesPage;
+
+   [SetUp]
+    public void SetUp()
+    {
+        // Initialize BrakesPage class before each test
+        _brakesPage = new Brakes();
+    }
+
+    [Test]
+    public void TestGetTitle()
+    {
+        // Act
+        string title = _brakesPage.GetTitle();
+        string expectedTitle = "Brakes";
+        // Assert
+        //  Assert.IsNotEmpty(title, "The title of the page should not be empty.");
+        Assert.AreEqual(expectedTitle, title, "The title of the page should match the expected value.");
+    }
+
+    [Test]
+    public void TestGetPartsCount()
+    {
+        // Act
+        int partsCount = _brakesPage.GetPartsCount();
+        int expectedPartsCount = 3;
+        // Assert
+        Assert.AreEqual(expectedPartsCount, partsCount);
+    }
+
+    [Test]
+    public void TestGetPartName_ValidIndex()
+    {
+        // Act
+        string partName1 = _brakesPage.GetPartName(0); // Retrieve the name of the second part
+        string expectedPartName1 = "Disk and Pad Combo";
+        // Assert
+        Assert.IsNotNull(partName1, "The part name should not be null.");
+        Assert.AreEqual(expectedPartName1, partName1, "The part name at index 1 should be 'Brake Disc'.");
+
+        // Act
+        string partName2 = _brakesPage.GetPartName(1); // Retrieve the name of the second part
+        string expectedPartName2 = "Brake Rotor";
+        // Assert
+        Assert.IsNotNull(partName2, "The part name should not be null.");
+        Assert.AreEqual(expectedPartName2, partName2, "The part name at index 1 should be 'Brake Disc'.");
+
+        // Act
+        string partName3 = _brakesPage.GetPartName(2); // Retrieve the name of the second part
+        string expectedPartName3 = "Brake Disk and Calipers";
+        // Assert
+        Assert.IsNotNull(partName3, "The part name should not be null.");
+        Assert.AreEqual(expectedPartName3, partName3, "The part name at index 1 should be 'Brake Disc'.");
+    }
+
+
+
+    [Test]
+    public void TestOnClickNavigateToPartDescriptionPage_ValidIndex()
+    {
+        // Act and Assert: Simulate clicking on the first part and navigating to its description
+
+        _brakesPage.OnClickNavigateToPartDescriptionPage(0); // Click on the first part "Brake Pad"
+        string currentUrl0 = _brakesPage.GetCurrentUrl();
+
+        // Assuming the navigation redirects to a description page, check if the title or URL has changed
+        Assert.AreEqual(currentUrl0, "http://localhost:5000/Store/Details/10", "Url is not matched");
+
+
+    }
+
+    //[Test]
+    //public void TestOnClickNavigateToPartDescriptionPage_InvalidIndex()
+    //{
+    //    // Act and Assert: Simulate clicking on an invalid part index
+    //    try
+    //    {
+    //        _brakesPage.OnClickNavigateToPartDescriptionPage(99); // Invalid index
+    //        Assert.Pass("Navigating to an invalid part index did not cause an error.");
+    //    }
+    //    catch (Exception)
+    //    {
+    //        Assert.Fail("An error should not occur when navigating to an invalid part.");
+    //    }
+    //}
+
+    [TearDown]
+    public void TearDown()
+    {
+        // Cleanup resources after each test
+        _brakesPage.CloseBrowser();
+    }
+    }
+}
+
+
+
